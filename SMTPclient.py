@@ -18,10 +18,11 @@ def read_message():
     text = ''
     with open('message/message.txt', 'r', encoding='utf-8') as f:
         for line in f:
-            if line == '.\n':
-                text += '..\n'
-            elif line == '.':
-                text += '..'
+            if line[-1] == '\n' and line.count('.') == len(line) - 1 \
+                    and len(line) - 1 != 0:
+                text += line[:-1] + '.\n'
+            elif line.count('.') == len(line) and len(line) != 0:
+                text += line + '.'
             else:
                 text += line
         return text
