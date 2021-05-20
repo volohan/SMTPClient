@@ -19,7 +19,9 @@ def read_message():
     with open('message/message.txt', 'r', encoding='utf-8') as f:
         for line in f:
             if line == '.\n':
-                text += '+'
+                text += '..\n'
+            elif line == '.':
+                text += '..'
             else:
                 text += line
         return text
